@@ -4,32 +4,26 @@ module.exports = {
         es2021: true,
     },
     extends: [
-        'xo',
         'plugin:react/recommended',
+        'airbnb',
     ],
-    overrides: [
-        {
-            extends: [
-                'xo-typescript',
-            ],
-            files: [
-                '*.ts',
-                '*.tsx',
-            ],
-        },
-    ],
+    parser: '@typescript-eslint/parser',
     parserOptions: {
+        ecmaFeatures: {
+            jsx: true,
+        },
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
     plugins: [
         'react',
+        '@typescript-eslint',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
         indent: [2, 4],
-        'react/jsx-filename-extension': [2, {extensions: ['.js', '.jsx', '.tsx']}],
+        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'warn',
@@ -41,9 +35,8 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
-        'no-empty-static-block': 'off',
-        'no-empty-static-bloc': 'off',
-        'no-new-native-nonconstructor': 'off',
-        '@typescript-eslint/naming-convention': 'off',
+    },
+    globals: {
+        __IS_DEV__: true,
     },
 };
